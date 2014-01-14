@@ -1,4 +1,4 @@
-cheri-paris
+Cheri-Paris
 ===========
 
-Android application for cheri-paris
+Android application for Cheri-Paris
