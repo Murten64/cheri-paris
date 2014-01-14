@@ -19,5 +19,6 @@
     <string name="btnInfoGPS">Locate</string>
     <string name="gpsActive">GPS Active!</string>
     <string name="gpsUnactive">GPS Unactive!</string>
+    <string name="labReturn">Return</string>
 
 </resources>
