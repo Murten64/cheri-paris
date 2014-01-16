@@ -16,7 +16,8 @@ import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.w3c.dom.Document;
-import org.w3c.dom.Node;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import android.os.AsyncTask;
@@ -53,7 +54,6 @@ public class PrestaRESTService extends AsyncTask<String, Void, List<Store>> {
 	protected List<Store> doInBackground(String... city) {
 		String url = new String(PRESTA_REST_URL_STORES);
 		url += city[0];
-		Log.i("CHERI", url);
 		List<Store> stores = new ArrayList<Store>();
 		
 		HttpGet cible = new HttpGet(url);
@@ -72,14 +72,26 @@ public class PrestaRESTService extends AsyncTask<String, Void, List<Store>> {
 		        int nbPdv = answer.getElementsByTagName("store").getLength();
 
 		        Log.i("CHERI", Integer.toString(nbPdv) + " points de ventes");
-		        
+		        NodeList nl = answer.getElementsByTagName("store");
 		        for(int i=0; i<nbPdv; i++) {
-		        	Node current = answer.getElementsByTagName("store").item(i);
-		        	Log.i("DEBUG", current.getChildNodes().item(0).getNodeValue());
-		        	Store s = new Store(current.getChildNodes().item(0).getNodeValue(), 
-		        						current.getChildNodes().item(1).getNodeValue(), 
-		        						current.getChildNodes().item(2).getNodeValue(), 
-		        						current.getChildNodes().item(3).getNodeValue());
+			        Element current = (Element)nl.item(i);
+		        	
+			        NodeList store = current.getElementsByTagName("id");
+			        Element id = (Element)store.item(0);
+			        store = current.getElementsByTagName("name");
+			        Element name = (Element)store.item(0);
+			        store = current.getElementsByTagName("latitude");
+			        Element latitude = (Element)store.item(0);
+			        store = current.getElementsByTagName("longitude");
+			        Element longitude = (Element)store.item(0);
+		        	Log.i("DEBUG", id.getFirstChild().getNodeValue());
+		        	Log.i("DEBUG", name.getFirstChild().getNodeValue());
+		        	Log.i("DEBUG", latitude.getFirstChild().getNodeValue());
+		        	Log.i("DEBUG", longitude.getFirstChild().getNodeValue());
+		        	Store s = new Store(id.getFirstChild().getNodeValue(), 
+		        						name.getFirstChild().getNodeValue(), 
+		        						latitude.getFirstChild().getNodeValue(), 
+		        						longitude.getFirstChild().getNodeValue());
 		        	stores.add(s);
 		        	Log.i("CHERI", current.toString());
 		        }

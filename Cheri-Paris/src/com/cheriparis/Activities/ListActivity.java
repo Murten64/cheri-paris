@@ -62,6 +62,7 @@ public class ListActivity extends Activity {
     
     public void setStores(List<Store> stores) {
 		this._stores = stores;
+		// TODO appeler l'adapteur
 	}
 
 	public void load(){
