@@ -34,7 +34,7 @@ public class StoreAdapter extends ArrayAdapter<Store> {
 		}
 		
 		//injection of view's values
-		// TODO add listeners on buttons
+		// TODO ajouter des listeners aux boutons
 		TextView tv = (TextView)convertView.findViewById(R.id.tvItemName);
 		tv.setText(_stores.get(position).getName());
 		

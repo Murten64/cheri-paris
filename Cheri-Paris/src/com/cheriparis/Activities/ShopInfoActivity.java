@@ -5,6 +5,8 @@ import android.app.Activity;
 import android.view.Menu;
 
 public class ShopInfoActivity extends Activity {
+	// TODO ajouter un service pour récupérer les données complètes d'un magasin
+	// TODO lier les données récupérés aux champs de cette activité
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
