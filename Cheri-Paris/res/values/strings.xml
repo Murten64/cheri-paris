@@ -32,5 +32,6 @@
     <string name="mailStore">Mail:</string>
     <string name="postCodeStore">Post Code:</string>
     <string name="cityStore">City:</string>
+    <string name="nbStores"> Store(s) located!</string>
 
 </resources>

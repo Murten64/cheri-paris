@@ -19,6 +19,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.cheriparis.adapters.StoreAdapter;
 import com.cheriparis.listeners.BtnReturnListener;
@@ -29,6 +30,7 @@ public class ListActivity extends Activity {
 	private List<Store> _stores;
 	private StoreAdapter _adapter;
 	private ListView _list;
+	private TextView _nbStore;
 	private SharedPreferences _prefGPS;
 	private SharedPreferences _prefCity;
 	private Location _location;
@@ -46,7 +48,7 @@ public class ListActivity extends Activity {
         load();
         PrestaRESTService cityStores = new PrestaRESTService(this);
         
-        
+        this._nbStore = (TextView)findViewById(R.id.labNbStore);
         this._list = (ListView)findViewById(R.id.lvStoreList);
         Button btnReturn = (Button)findViewById(R.id.btnReturnList);
         btnReturn.setOnClickListener(new BtnReturnListener(this));
@@ -64,11 +66,19 @@ public class ListActivity extends Activity {
     }
     
     public void setStores(List<Store> stores) {
+    	this._stores.clear();
     	for(int i = 0; i < stores.size(); i++){
     		_stores.add(stores.get(i));
     	}
+    	this.setNbStores(this._stores.size());
     	this._adapter.notifyDataSetChanged();
 	}
+    
+    private void setNbStores(int nb){
+    	String number = new String(String.valueOf(nb));
+    	number += this._nbStore.getText().toString();
+    	this._nbStore.setText(number);
+    }
 
 	public void load(){
     	setCity(_prefCity.getString("city",""));

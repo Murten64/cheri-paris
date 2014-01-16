@@ -12,7 +12,7 @@
 
         <Button
             android:id="@+id/btnReturnList"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/labReturn" />
@@ -24,7 +24,16 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/btnLayoutList"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true" >
+        android:layout_below="@+id/labNbStore" >
+
     </ListView>
+
+    <TextView
+        android:id="@+id/labNbStore"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/nbStores" />
 
 </RelativeLayout>
