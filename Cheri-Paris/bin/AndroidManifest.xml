@@ -43,6 +43,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.cheriparis.Activities.MainActivity" />
         </activity>
+        <activity
+            android:name="com.cheriparis.Activities.ShopInfoActivity"
+            android:label="@string/title_activity_shop_info" >
+        </activity>
     </application>
 
 </manifest>

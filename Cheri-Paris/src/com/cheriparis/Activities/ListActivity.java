@@ -8,7 +8,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Criteria;
 import android.location.Geocoder;
@@ -23,6 +22,7 @@ import android.widget.ListView;
 
 import com.cheriparis.adapters.StoreAdapter;
 import com.cheriparis.listeners.BtnReturnListener;
+import com.cheriparis.networking.PrestaRESTService;
 import com.cheriparis.pojos.Store;
 
 public class ListActivity extends Activity {
@@ -41,8 +41,10 @@ public class ListActivity extends Activity {
         _prefCity = getSharedPreferences("city",Activity.MODE_PRIVATE);
         
         this._stores = new ArrayList<Store>();
-        
+        PrestaRESTService cityStores = new PrestaRESTService(this);
         load();
+        
+        cityStores.execute(this.getCity());
         
         ListView list = (ListView)findViewById(R.id.lvStoreList);
         Button btnReturn = (Button)findViewById(R.id.btnReturnList);
@@ -58,7 +60,11 @@ public class ListActivity extends Activity {
         return true;
     }
     
-    public void load(){
+    public void setStores(List<Store> stores) {
+		this._stores = stores;
+	}
+
+	public void load(){
     	setCity(_prefCity.getString("city",""));
     	Log.i("city before gps", getCity());
     	

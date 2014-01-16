@@ -6,6 +6,13 @@ public class Store {
 	private double _latitude;
 	private double _longitude;
 	
+	public Store(String id, String name, String latitude, String longitude){
+		this._id = Integer.parseInt(id);
+		this._name = name;
+		this._latitude = Double.parseDouble(latitude);
+		this._longitude = Double.parseDouble(longitude);
+	}
+	
 	public Store(int id, String name, double latitude, double longitude){
 		this._id = id;
 		this._name = name;
