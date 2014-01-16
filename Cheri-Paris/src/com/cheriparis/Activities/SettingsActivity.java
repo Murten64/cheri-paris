@@ -14,6 +14,7 @@ import android.location.Criteria;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.util.Log;
@@ -99,7 +100,10 @@ public class SettingsActivity extends Activity {
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-				//googlemaps
+				//googlemaps 
+				String url = "http://maps.google.com/?ll=43.3063239,-0.3379071";
+				Intent intent = new Intent( Intent.ACTION_VIEW, Uri.parse( url ) );
+				startActivity(intent);
 				//maps.google.com/?ll=43.3063239,-0.3379071
             }
             //si gps actif, mais non demlande
