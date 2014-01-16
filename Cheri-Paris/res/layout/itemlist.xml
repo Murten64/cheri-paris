@@ -9,15 +9,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_weight="1.97"
-        android:text="Large Text"
+        android:layout_weight="1"
+        android:text="@string/store"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <ImageButton
         android:id="@+id/btnInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="0.88"
         android:contentDescription="@string/btnInfo"
         android:src="@drawable/magnifying_glass" />
 
@@ -25,7 +24,6 @@
         android:id="@+id/btnInfoGPS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="0.99"
         android:contentDescription="@string/btnInfoGPS"
         android:src="@drawable/earth" />
 
