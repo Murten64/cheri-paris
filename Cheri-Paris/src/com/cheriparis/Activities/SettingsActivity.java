@@ -48,8 +48,8 @@ public class SettingsActivity extends Activity {
         
         setContentView(R.layout.activity_settings);
 
-        _prefGPS = getPreferences(Activity.MODE_PRIVATE);
-        _prefCity = getPreferences(Activity.MODE_PRIVATE);
+        _prefGPS = getSharedPreferences("gps",0);
+        _prefCity = getSharedPreferences("city",0);
         
         this._group = (RadioGroup)findViewById(R.id.radioGroup1);
         _group.setOnCheckedChangeListener(new CheckListener(this));        
@@ -78,35 +78,6 @@ public class SettingsActivity extends Activity {
             if (_gpsEnabled && (R.id.rbGPS == _prefGPS.getInt("gps",R.id.rbCity))){
     			_group.check(R.id.rbGPS);
     			Log.i("gps", "active");
-    			
-    			//GPS
-    			//critere de recherche, par default
-    		    Criteria criteria = new Criteria();
-    		    String provider = locationManager.getBestProvider(criteria, false);
-    		    //position
-    		    Location location = locationManager.getLastKnownLocation(provider);
-    			Log.i("latitude", String.valueOf(location.getLatitude()));
-    			Log.i("longitude", String.valueOf(location.getLongitude()));
-    			//geocoder
-    			Geocoder gcd = new Geocoder(this);
-    			List<Address> addresses;
-				try {
-					//recup de l'adresse
-					addresses = gcd.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-	    			if (addresses.size() > 0){
-	    				//et donc de la ville
-	    				Log.i("ville", addresses.get(0).getLocality());
-	    			}
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-				//googlemaps				
-				String url = "http://maps.google.com/?ll=";
-				url += String.valueOf(location.getLatitude());
-				url += ",";
-				url += String.valueOf(location.getLongitude());
-				Intent intent = new Intent( Intent.ACTION_VIEW, Uri.parse( url ) );
-				startActivity(intent);
             }
             //si gps actif, mais non demande
             else{
