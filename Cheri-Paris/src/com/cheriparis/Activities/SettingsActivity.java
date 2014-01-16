@@ -97,7 +97,6 @@ public class SettingsActivity extends Activity {
 	    				Log.i("ville", addresses.get(0).getLocality());
 	    			}
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				//googlemaps
