@@ -100,13 +100,15 @@ public class SettingsActivity extends Activity {
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-				//googlemaps 
-				String url = "http://maps.google.com/?ll=43.3063239,-0.3379071";
+				//googlemaps				
+				String url = "http://maps.google.com/?ll=";
+				url += String.valueOf(location.getLatitude());
+				url += ",";
+				url += String.valueOf(location.getLongitude());
 				Intent intent = new Intent( Intent.ACTION_VIEW, Uri.parse( url ) );
 				startActivity(intent);
-				//maps.google.com/?ll=43.3063239,-0.3379071
             }
-            //si gps actif, mais non demlande
+            //si gps actif, mais non demande
             else{
     			_group.check(R.id.rbCity);
     			Log.i("gps", "unactive");
