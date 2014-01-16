@@ -30,7 +30,7 @@ public class StoreAdapter extends ArrayAdapter<Store> {
 		//instanciate the view
 		if(convertView == null){
 			//get xml file
-			li.inflate(R.layout.itemlist, parent, false);
+			convertView = li.inflate(R.layout.itemlist, parent, false);
 		}
 		
 		//injection of view's values
