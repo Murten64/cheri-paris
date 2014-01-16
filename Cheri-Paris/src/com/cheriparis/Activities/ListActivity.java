@@ -27,6 +27,8 @@ import com.cheriparis.pojos.Store;
 
 public class ListActivity extends Activity {
 	private List<Store> _stores;
+	private StoreAdapter _adapter;
+	private ListView _list;
 	private SharedPreferences _prefGPS;
 	private SharedPreferences _prefCity;
 	private Location _location;
@@ -41,17 +43,18 @@ public class ListActivity extends Activity {
         _prefCity = getSharedPreferences("city",Activity.MODE_PRIVATE);
         
         this._stores = new ArrayList<Store>();
-        PrestaRESTService cityStores = new PrestaRESTService(this);
         load();
+        PrestaRESTService cityStores = new PrestaRESTService(this);
         
-        cityStores.execute(this.getCity());
         
-        ListView list = (ListView)findViewById(R.id.lvStoreList);
+        this._list = (ListView)findViewById(R.id.lvStoreList);
         Button btnReturn = (Button)findViewById(R.id.btnReturnList);
         btnReturn.setOnClickListener(new BtnReturnListener(this));
         
-        StoreAdapter adapter = new StoreAdapter(this, R.layout.itemlist, this._stores);
-        list.setAdapter(adapter);
+        this._adapter = new StoreAdapter(this, R.layout.itemlist, this._stores);
+        this._list.setAdapter(this._adapter);
+        
+        cityStores.execute(this._city);
     }
 
     @Override
@@ -61,8 +64,10 @@ public class ListActivity extends Activity {
     }
     
     public void setStores(List<Store> stores) {
-		this._stores = stores;
-		// TODO appeler l'adapteur
+    	for(int i = 0; i < stores.size(); i++){
+    		_stores.add(stores.get(i));
+    	}
+    	this._adapter.notifyDataSetChanged();
 	}
 
 	public void load(){

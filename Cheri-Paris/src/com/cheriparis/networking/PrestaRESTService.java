@@ -84,10 +84,6 @@ public class PrestaRESTService extends AsyncTask<String, Void, List<Store>> {
 			        Element latitude = (Element)store.item(0);
 			        store = current.getElementsByTagName("longitude");
 			        Element longitude = (Element)store.item(0);
-		        	Log.i("DEBUG", id.getFirstChild().getNodeValue());
-		        	Log.i("DEBUG", name.getFirstChild().getNodeValue());
-		        	Log.i("DEBUG", latitude.getFirstChild().getNodeValue());
-		        	Log.i("DEBUG", longitude.getFirstChild().getNodeValue());
 		        	Store s = new Store(id.getFirstChild().getNodeValue(), 
 		        						name.getFirstChild().getNodeValue(), 
 		        						latitude.getFirstChild().getNodeValue(), 
