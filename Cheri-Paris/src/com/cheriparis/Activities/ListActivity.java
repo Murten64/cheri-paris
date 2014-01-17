@@ -94,7 +94,6 @@ public class ListActivity extends Activity {
     public void goToShopLocalisation(int id){
     	// TODO se relier à la mapActivity
 		Intent intent = new Intent();
-		Log.i("DEBUG", "goToShoplocalisation("+Integer.toString(id)+");");
     	if(id == 0){
     		// TODO Afficher une carte centrée sur le centre-ville ou l'emplacement du telephone
     		//intent.setClass(ListActivity.this, classeCible.class);
