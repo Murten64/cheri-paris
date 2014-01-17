@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Criteria;
 import android.location.Geocoder;
@@ -83,11 +84,14 @@ public class ListActivity extends Activity {
 	public void load(){
     	setCity(_prefCity.getString("city",""));
     	Log.i("city before gps", getCity());
-    	
+
+        PackageManager pm = getPackageManager();
+        if (pm.hasSystemFeature(PackageManager.FEATURE_LOCATION_GPS)){
 		//GPS
 		//critere de recherche, par default
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-    	if (R.id.rbGPS == _prefGPS.getInt("gps",R.id.rbCity)){
+    	if ((R.id.rbGPS == _prefGPS.getInt("gps",R.id.rbCity)) && 
+    			(locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER))){
     	    Criteria criteria = new Criteria();
     	    String provider = locationManager.getBestProvider(criteria, false);
     	    //position
@@ -118,6 +122,7 @@ public class ListActivity extends Activity {
     		Intent intent = new Intent( Intent.ACTION_VIEW, Uri.parse( url ) );
     		startActivity(intent);
     	}
+        }
     	Log.i("city after gps", getCity());
     }
 
