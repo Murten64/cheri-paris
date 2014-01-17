@@ -31,5 +31,6 @@
     <string name="postCodeStore">Post Code:</string>
     <string name="cityStore">City:</string>
     <string name="nbStores"> Store(s) located!</string>
+    <string name="notFound"> Informations not found!</string>
 
 </resources>
