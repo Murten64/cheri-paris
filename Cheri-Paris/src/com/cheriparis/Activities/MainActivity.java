@@ -1,5 +1,6 @@
 package com.cheriparis.Activities;
 
+import com.cheriparis.Activities.R;
 import com.cheriparis.listeners.BtnListListener;
 import com.cheriparis.listeners.BtnSettingsListener;
 

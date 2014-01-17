@@ -24,6 +24,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.cheriparis.Activities.R;
 import com.cheriparis.adapters.StoreAdapter;
 import com.cheriparis.listeners.BtnGlobalGPSListener;
 import com.cheriparis.listeners.BtnReturnListener;
@@ -123,6 +124,7 @@ public class MyListActivity extends Activity {
     	} else{
     		
     	}*/
+    	startActivity(intent);
     }
     
 	public void load(){

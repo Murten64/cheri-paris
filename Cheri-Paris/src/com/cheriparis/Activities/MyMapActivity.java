@@ -1,5 +1,6 @@
 package com.cheriparis.Activities;
 
+import com.cheriparis.Activities.R;
 import com.google.android.gms.maps.*;
 import com.google.android.gms.maps.model.*;
 

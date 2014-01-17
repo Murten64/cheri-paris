@@ -3,6 +3,7 @@ package com.cheriparis.Activities;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.cheriparis.Activities.R;
 import com.cheriparis.listeners.BtnReturnListener;
 import com.cheriparis.networking.PrestaINFOService;
 import com.cheriparis.pojos.InfoStore;

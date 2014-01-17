@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.cheriparis.Activities.R;
 import com.cheriparis.listeners.BtnCancelSettingsListener;
 import com.cheriparis.listeners.BtnValidateSettingsListener;
 import com.cheriparis.listeners.CheckListener;
