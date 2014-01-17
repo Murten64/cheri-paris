@@ -2,10 +2,11 @@ package com.cheriparis.Activities;
 
 import com.google.android.gms.maps.*;
 import com.google.android.gms.maps.model.*;
-import android.app.Activity;
-import android.os.Bundle;
 
-public class MyMapActivity extends Activity {
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+
+public class MyMapActivity extends FragmentActivity {
 	private GoogleMap _map;
 
     @Override
@@ -14,17 +15,17 @@ public class MyMapActivity extends Activity {
         setContentView(R.layout.mymap_activity);
 
         // Get a handle to the Map Fragment
-        //_map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
+        _map = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
+        
+        LatLng sydney = new LatLng(-33.867, 151.206);
 
-        /*LatLng sydney = new LatLng(-33.867, 151.206);
+        _map.setMyLocationEnabled(true);
+        _map.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 13));
 
-        map.setMyLocationEnabled(true);
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 13));
-
-        map.addMarker(new MarkerOptions()
+        _map.addMarker(new MarkerOptions()
                 .title("Sydney")
                 .snippet("The most populous city in Australia.")
-                .position(sydney));*/
+                .position(sydney));
     }
 }
 
