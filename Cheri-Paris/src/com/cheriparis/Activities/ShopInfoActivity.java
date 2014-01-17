@@ -3,6 +3,7 @@ package com.cheriparis.Activities;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.cheriparis.listeners.BtnReturnListener;
 import com.cheriparis.networking.PrestaINFOService;
 import com.cheriparis.pojos.InfoStore;
 
@@ -10,6 +11,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class ShopInfoActivity extends Activity {
@@ -31,6 +33,10 @@ public class ShopInfoActivity extends Activity {
 		this._infos.add((TextView)findViewById(R.id.labCityStore));
 		this._infos.add((TextView)findViewById(R.id.labPhoneStore));
 		this._infos.add((TextView)findViewById(R.id.labMailStore));
+		
+		Button btnReturn = (Button)findViewById(R.id.btnReturnShop);
+		btnReturn.setOnClickListener(new BtnReturnListener(this));
+		
 		if(id == 0){
 			this._infos.get(0).setText(R.string.notFound);
 		}else{

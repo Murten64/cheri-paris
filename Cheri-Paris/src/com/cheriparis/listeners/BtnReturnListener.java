@@ -1,14 +1,14 @@
 package com.cheriparis.listeners;
 
-import com.cheriparis.Activities.ListActivity;
-
 import android.view.View;
 import android.view.View.OnClickListener;
 
+import com.cheriparis.Activities.ShopInfoActivity;
+
 public class BtnReturnListener implements OnClickListener {
-	private ListActivity _myView;
+	private ShopInfoActivity _myView;
 	
-	public BtnReturnListener(ListActivity view){
+	public BtnReturnListener(ShopInfoActivity view){
 		this._myView = view;
 	}
 	
