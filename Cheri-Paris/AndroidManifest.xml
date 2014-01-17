@@ -71,7 +71,7 @@
             android:parentActivityName="com.cheriparis.Activities.MyListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.cheriparis.Activities.ListActivity" />
+                android:value="com.cheriparis.Activities.MyListActivity" />
         </activity>
     </application>
 
