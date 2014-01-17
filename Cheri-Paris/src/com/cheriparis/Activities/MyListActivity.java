@@ -103,12 +103,34 @@ public class MyListActivity extends Activity {
 
 	public void goToShopLocalisation(int id){
 		Intent intent = new Intent();
+		double[] lats;
+		double[] longs;
     	if(id == 0){
+    		lats = new double[this._stores.size()+1];
+    		longs = new double[this._stores.size()+1];
+    		lats[0] = this.localiseMe()[0];
+    		longs[0] = this.localiseMe()[1];
+    		for(int i = 0; i < this._stores.size(); i++){
+    			lats[i+1] = this._stores.get(i).getLatitude();
+    			longs[i+1] = this._stores.get(i).getLongitude();
+    		}
     		intent.setClass(MyListActivity.this, MyMapActivity.class);
     	}else {
+    		lats = new double[2];
+    		longs = new double[2];
+    		lats[0] = this.localiseMe()[0];
+    		longs[0] = this.localiseMe()[1];
+    		int i = 0;
+    		while(this._stores.get(i).getId() != id){
+    			i++;
+    		}
+    		lats[1] = this._stores.get(i).getLatitude();
+    		longs[1] = this._stores.get(i).getLongitude();
     		intent.setClass(MyListActivity.this, MyMapActivity.class);
     		intent.putExtra("id", id);
     	}
+		intent.putExtra("latitudes", lats);
+		intent.putExtra("longitudes", longs);
     	/*PackageManager pm = getPackageManager();
     	if (pm.hasSystemFeature(PackageManager.FEATURE_LOCATION_GPS)){
     		LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -126,6 +148,11 @@ public class MyListActivity extends Activity {
     	}*/
     	startActivity(intent);
     }
+	
+	private double[] localiseMe(){
+		
+		return null;
+	}
     
 	public void load(){
     	setCity(_prefCity.getString("city",""));
