@@ -19,7 +19,7 @@
     <string name="btnInfo">Noticias</string>
     <string name="btnInfoGPS">Localizar</string>
     <string name="gpsActive">GPS Activo!</string>
-    <string name="gpsUnactive">GPS Inactive!</string>
+    <string name="gpsUnactive">GPS Inactivo!</string>
     <string name="labReturn">Retorno</string>
     <string name="action_settings">Configuración</string>
     <string name="store">Tienda</string>
@@ -30,6 +30,6 @@
     <string name="mailStore">Email:</string>
     <string name="postCodeStore">Código postal:</string>
     <string name="cityStore">Ciudad:</string>
-    <string name="nbStores"> Tienda(s) localizadas!</string>
+    <string name="nbStores"> Tienda(s) localizada(s)!</string>
 
 </resources>

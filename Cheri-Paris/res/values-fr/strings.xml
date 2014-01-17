@@ -5,8 +5,8 @@
     <string name="GPS">GPS</string>
     <string name="menu_settings">Réglages</string>
     <string name="title_activity_main">Cheri-Paris</string>
-    <string name="btnList">List des magasins</string>
-    <string name="btnSettings">Raglages</string>
+    <string name="btnList">Liste des magasins</string>
+    <string name="btnSettings">Réglages</string>
     <string name="title_activity_settings">Réglages</string>
     <string name="title_activity_list">Cheri-Paris Magasins</string>
     <string name="settings">Réglages</string>
