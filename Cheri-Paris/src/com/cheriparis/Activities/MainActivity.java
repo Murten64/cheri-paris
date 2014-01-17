@@ -12,7 +12,6 @@ import android.view.MenuItem;
 import android.widget.Button;
 
 public class MainActivity extends Activity {
-	private static int CODE_RETOUR = 1;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {

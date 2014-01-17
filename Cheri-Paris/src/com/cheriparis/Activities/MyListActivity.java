@@ -14,20 +14,16 @@ import android.location.Criteria;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.cheriparis.Activities.R;
 import com.cheriparis.adapters.StoreAdapter;
 import com.cheriparis.listeners.BtnGlobalGPSListener;
-import com.cheriparis.listeners.BtnReturnListener;
 import com.cheriparis.networking.PrestaRESTService;
 import com.cheriparis.pojos.Store;
 
@@ -131,21 +127,6 @@ public class MyListActivity extends Activity {
     	}
 		intent.putExtra("latitudes", lats);
 		intent.putExtra("longitudes", longs);
-    	/*PackageManager pm = getPackageManager();
-    	if (pm.hasSystemFeature(PackageManager.FEATURE_LOCATION_GPS)){
-    		LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-    		if ((R.id.rbGPS == _prefGPS.getInt("gps",R.id.rbCity)) && 
-    			(locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER))){
-    			String url = "http://maps.google.com/?ll=";
-    			url += String.valueOf(_location.getLatitude());
-    			url += ",";
-    			url += String.valueOf(_location.getLongitude());
-    			Intent intent = new Intent( Intent.ACTION_VIEW, Uri.parse( url ) );
-    			startActivity(intent);
-    		}
-    	} else{
-    		
-    	}*/
     	startActivity(intent);
     }
 	

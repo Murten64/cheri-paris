@@ -2,20 +2,19 @@ package com.cheriparis.adapters;
 
 import java.util.List;
 
-import com.cheriparis.Activities.MyListActivity;
-import com.cheriparis.Activities.R;
-import com.cheriparis.listeners.BtnInfoGPSListener;
-import com.cheriparis.listeners.BtnInfoListener;
-import com.cheriparis.pojos.Store;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import com.cheriparis.Activities.MyListActivity;
+import com.cheriparis.Activities.R;
+import com.cheriparis.listeners.BtnInfoGPSListener;
+import com.cheriparis.listeners.BtnInfoListener;
+import com.cheriparis.pojos.Store;
 
 public class StoreAdapter extends ArrayAdapter<Store> {
 	private List<Store> _stores;
