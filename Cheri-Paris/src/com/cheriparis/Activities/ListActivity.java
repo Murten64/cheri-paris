@@ -54,7 +54,7 @@ public class ListActivity extends Activity {
         Button btnReturn = (Button)findViewById(R.id.btnReturnList);
         btnReturn.setOnClickListener(new BtnReturnListener(this));
         
-        this._adapter = new StoreAdapter(this, R.layout.itemlist, this._stores);
+        this._adapter = new StoreAdapter(this, R.layout.itemlist, this._stores, this);
         this._list.setAdapter(this._adapter);
         
         cityStores.execute(this._city);
@@ -81,6 +81,31 @@ public class ListActivity extends Activity {
     	this._nbStore.setText(number);
     }
 
+    public void goToShopInfoActivity(int id){
+    	Intent intent = new Intent();
+    	intent.setClass(ListActivity.this, ShopInfoActivity.class);
+    	intent.putExtra("id", id);
+    	this.startActivity(intent);
+    }
+    
+    public void goToShopLocalisation(){	
+    	PackageManager pm = getPackageManager();
+    	if (pm.hasSystemFeature(PackageManager.FEATURE_LOCATION_GPS)){
+    		LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+    		if ((R.id.rbGPS == _prefGPS.getInt("gps",R.id.rbCity)) && 
+    			(locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER))){
+    			String url = "http://maps.google.com/?ll=";
+    			url += String.valueOf(_location.getLatitude());
+    			url += ",";
+    			url += String.valueOf(_location.getLongitude());
+    			Intent intent = new Intent( Intent.ACTION_VIEW, Uri.parse( url ) );
+    			startActivity(intent);
+    		}
+    	} else{
+    		
+    	}
+    }
+    
 	public void load(){
     	setCity(_prefCity.getString("city",""));
     	Log.i("city before gps", getCity());
@@ -113,15 +138,6 @@ public class ListActivity extends Activity {
     			} catch (IOException e) {
     				e.printStackTrace();
     			}
-
-    			// TODO deplacer googlemap
-    			//googlemaps				
-    			String url = "http://maps.google.com/?ll=";
-    			url += String.valueOf(_location.getLatitude());
-    			url += ",";
-    			url += String.valueOf(_location.getLongitude());
-    			Intent intent = new Intent( Intent.ACTION_VIEW, Uri.parse( url ) );
-    			startActivity(intent);
     		}
     	}
     	Log.i("city after gps", getCity());
