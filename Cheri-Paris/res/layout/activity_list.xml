@@ -10,12 +10,14 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true" >
 
-        <Button
-            android:id="@+id/btnReturnList"
+        <ImageButton
+            android:id="@+id/btnGlobalGPS"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/labReturn" />
+            android:contentDescription="@string/GPS"
+            android:src="@drawable/earth" />
+
     </LinearLayout>
 
     <ListView

@@ -19,10 +19,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.cheriparis.adapters.StoreAdapter;
+import com.cheriparis.listeners.BtnGlobalGPSListener;
 import com.cheriparis.listeners.BtnReturnListener;
 import com.cheriparis.networking.PrestaRESTService;
 import com.cheriparis.pojos.Store;
@@ -51,8 +53,9 @@ public class ListActivity extends Activity {
         
         this._nbStore = (TextView)findViewById(R.id.labNbStore);
         this._list = (ListView)findViewById(R.id.lvStoreList);
-        Button btnReturn = (Button)findViewById(R.id.btnReturnList);
-        btnReturn.setOnClickListener(new BtnReturnListener(this));
+        ImageButton btnGPS = (ImageButton)findViewById(R.id.btnGlobalGPS);
+        // TODO lier le bouton btnGPS avec l'activité du gps
+        btnGPS.setOnClickListener(new BtnGlobalGPSListener(this));
         
         this._adapter = new StoreAdapter(this, R.layout.itemlist, this._stores, this);
         this._list.setAdapter(this._adapter);
@@ -88,8 +91,19 @@ public class ListActivity extends Activity {
     	this.startActivity(intent);
     }
     
-    public void goToShopLocalisation(){	
-    	PackageManager pm = getPackageManager();
+    public void goToShopLocalisation(int id){
+    	// TODO se relier à la mapActivity
+		Intent intent = new Intent();
+		Log.i("DEBUG", "goToShoplocalisation("+Integer.toString(id)+");");
+    	if(id == 0){
+    		// TODO Afficher une carte centrée sur le centre-ville ou l'emplacement du telephone
+    		//intent.setClass(ListActivity.this, classeCible.class);
+    	}else {
+    		// TODO Afficher une carte centrée sur le magasin sélectionné
+    		//intent.setClass(ListActivity.this, classeCible.class);
+    		intent.putExtra("id", id);
+    	}
+    	/*PackageManager pm = getPackageManager();
     	if (pm.hasSystemFeature(PackageManager.FEATURE_LOCATION_GPS)){
     		LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
     		if ((R.id.rbGPS == _prefGPS.getInt("gps",R.id.rbCity)) && 
@@ -103,7 +117,7 @@ public class ListActivity extends Activity {
     		}
     	} else{
     		
-    	}
+    	}*/
     }
     
 	public void load(){

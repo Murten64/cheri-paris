@@ -46,7 +46,7 @@ public class StoreAdapter extends ArrayAdapter<Store> {
 		ImageButton btnInfo = (ImageButton)convertView.findViewById(R.id.btnInfo);
 		btnInfo.setOnClickListener(new BtnInfoListener(this._myActivity,_stores.get(position).getId()));
 		ImageButton btnGPS = (ImageButton)convertView.findViewById(R.id.btnInfoGPS);
-		btnGPS.setOnClickListener(new BtnInfoGPSListener(this._myActivity));
+		btnGPS.setOnClickListener(new BtnInfoGPSListener(this._myActivity, _stores.get(position).getId()));
 		
 		return convertView;
 	}

@@ -32,7 +32,7 @@ public class MainActivity extends Activity {
     
     public boolean onOptionsItemSelected (MenuItem item){
     	if(item.getItemId() == R.id.menu_settings) {
-    		startActivityForResult(new Intent(this, SettingsActivity.class), CODE_RETOUR);
+    		startActivity(new Intent(this, SettingsActivity.class));
     	}
 
     	return super.onOptionsItemSelected(item);
