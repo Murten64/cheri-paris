@@ -18,6 +18,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -69,7 +70,16 @@ public class ListActivity extends Activity {
         return true;
     }
     
-    public void setStores(List<Store> stores) {
+    @Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+    	if(item.getItemId() == R.id.menu_settings) {
+    		startActivity(new Intent(this, SettingsActivity.class));
+    	}
+
+    	return super.onOptionsItemSelected(item);
+	}
+
+	public void setStores(List<Store> stores) {
     	this._stores.clear();
     	for(int i = 0; i < stores.size(); i++){
     		_stores.add(stores.get(i));
@@ -90,8 +100,8 @@ public class ListActivity extends Activity {
     	intent.putExtra("id", id);
     	this.startActivity(intent);
     }
-    
-    public void goToShopLocalisation(int id){
+
+	public void goToShopLocalisation(int id){
     	// TODO se relier ˆ la mapActivity
 		Intent intent = new Intent();
     	if(id == 0){

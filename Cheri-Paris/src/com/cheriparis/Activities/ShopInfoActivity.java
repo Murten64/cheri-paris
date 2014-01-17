@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -67,6 +68,15 @@ public class ShopInfoActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.shop_info, menu);
 		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+    	if(item.getItemId() == R.id.menu_settings) {
+    		startActivity(new Intent(this, SettingsActivity.class));
+    	}
+
+    	return super.onOptionsItemSelected(item);
 	}
 
 }
