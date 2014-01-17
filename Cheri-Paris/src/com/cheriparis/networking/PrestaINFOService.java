@@ -69,7 +69,6 @@ public class PrestaINFOService extends AsyncTask<Integer, Void, InfoStore> {
 		        Element hours = (Element)store.item(0);
 		        store = current.getElementsByTagName("name");
 		        Element name = (Element)store.item(0);
-		        Log.i("DEBUG", name.getFirstChild().getNodeValue());
 		        store = current.getElementsByTagName("address1");
 		        Element address = (Element)store.item(0);
 		        store = current.getElementsByTagName("postcode");
