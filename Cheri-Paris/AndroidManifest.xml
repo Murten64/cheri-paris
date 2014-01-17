@@ -14,7 +14,25 @@
     </uses-permission>
     <uses-permission android:name="android.permission.INTERNET" >
     </uses-permission>
-
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
+	</uses-permission>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" >
+	</uses-permission>
+	<uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" >
+	</uses-permission>
+	
+	<uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true"/>
+    
+    <meta-data
+    android:name="com.google.android.gms.version"
+    android:value="@integer/google_play_services_version" />
+    
+    <meta-data
+    android:name="com.google.android.maps.v2.API_KEY"
+    android:value="AIzaSyD71kKJLtlp5BVaE3b9LMj6H-1AD0aIlzs"/>
+        
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -46,6 +64,14 @@
         <activity
             android:name="com.cheriparis.Activities.ShopInfoActivity"
             android:label="@string/title_activity_shop_info" >
+        </activity>
+        <activity
+            android:name="com.cheriparis.Activities.MyMapActivity"
+            android:label="@string/title_activity_my_map"
+            android:parentActivityName="com.cheriparis.Activities.ListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.cheriparis.Activities.ListActivity" />
         </activity>
     </application>
 
