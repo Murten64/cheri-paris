@@ -55,7 +55,6 @@ public class MyListActivity extends Activity {
         this._nbStore = (TextView)findViewById(R.id.labNbStore);
         this._list = (ListView)findViewById(R.id.lvStoreList);
         ImageButton btnGPS = (ImageButton)findViewById(R.id.btnGlobalGPS);
-        // TODO lier le bouton btnGPS avec l'activité du gps
         btnGPS.setOnClickListener(new BtnGlobalGPSListener(this));
         
         this._adapter = new StoreAdapter(this, R.layout.itemlist, this._stores, this);
@@ -102,14 +101,11 @@ public class MyListActivity extends Activity {
     }
 
 	public void goToShopLocalisation(int id){
-    	// TODO se relier à la mapActivity
 		Intent intent = new Intent();
     	if(id == 0){
-    		// TODO Afficher une carte centrée sur le centre-ville ou l'emplacement du telephone
-    		//intent.setClass(MyListActivity.this, classeCible.class);
+    		intent.setClass(MyListActivity.this, MyMapActivity.class);
     	}else {
-    		// TODO Afficher une carte centrée sur le magasin sélectionné
-    		//intent.setClass(MyListActivity.this, classeCible.class);
+    		intent.setClass(MyListActivity.this, MyMapActivity.class);
     		intent.putExtra("id", id);
     	}
     	/*PackageManager pm = getPackageManager();
