@@ -127,6 +127,8 @@ public class SettingsActivity extends Activity {
     	}
     	String s = _prefCity.getString("city","");
     	_etpCity.setText(s);
+    	_etpCity.requestFocus();
+    	_etpCity.setSelection(s.length());
     }
 
 }
