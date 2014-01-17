@@ -115,7 +115,7 @@ public class SettingsActivity extends Activity {
     	
     	ed = _prefCity.edit();
     	String city = _etpCity.getText().toString();
-    	city.replaceAll(" ", "");
+    	city = city.replaceAll(" ", "");
     	ed.putString("city", city);
     	ed.commit();
     }
