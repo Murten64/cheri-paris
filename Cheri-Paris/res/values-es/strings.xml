@@ -32,5 +32,6 @@
     <string name="cityStore">Ciudad:</string>
     <string name="nbStores"> Tienda(s) localizada(s)!</string>
     <string name="notFound"> Informacións no encontradas!</string>
+    <string name="title_activity_my_map">Mapa</string>
 
 </resources>

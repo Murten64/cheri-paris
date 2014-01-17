@@ -25,11 +25,15 @@ public class MyMapActivity extends FragmentActivity {
         // Get a handle to the Map Fragment
         _map = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
         
+        //cree le premier marker
         LatLng marker = new LatLng(_lat[0], _long[0]);
+        //le positionne au bon endroit
     	_map.addMarker(new MarkerOptions()
     		.position(marker));
+    	//centre la camera dessus
         _map.moveCamera(CameraUpdateFactory.newLatLngZoom(marker, 13));
         
+        //place les autres marker
         for (int i=1; i<_lat.length; i++){
         	marker = new LatLng(_lat[i],_long[i]);
         	_map.addMarker(new MarkerOptions()

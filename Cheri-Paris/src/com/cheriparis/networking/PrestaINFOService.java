@@ -27,14 +27,10 @@ import com.cheriparis.pojos.InfoStore;
 public class PrestaINFOService extends AsyncTask<Integer, Void, InfoStore> {
 	private final static String PRESTA_INFO_KEY = "Z7MTLNZW96SEXB2LHVBQWKAM3UU41YIM";
 	private final static String PRESTA_INFO_URL_STORE = "http://cheri-paris.com/v1/api/stores?display=[hours,name,address1,postcode,city,phone,email]&filter[id]=";
-	//private final static String PRESTA_POSTALCODE_FIELD = "postcode";
 	
 	private ShopInfoActivity _myView;
 	
 	private DefaultHttpClient client;
-	//http://cheri-paris.com/v1/api/stores?filter[postcode]=64000
-	//http://cheri-paris.com/v1/api/stores?display=full&filter[postcode]=64000
-	//http://cheri-paris.com/v1/api/stores?display=[id,name,address1]&filter[city]=Pau
 	
 	public PrestaINFOService(ShopInfoActivity view){
 		super();
@@ -56,7 +52,6 @@ public class PrestaINFOService extends AsyncTask<Integer, Void, InfoStore> {
 			HttpResponse response = this.client.execute(cible);  //essayes d'atteindre la cible
 			
 			if (response.getStatusLine().getStatusCode()==200) {
-
 				HttpEntity responseEntity = response.getEntity();
 				
 				DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -96,8 +91,6 @@ public class PrestaINFOService extends AsyncTask<Integer, Void, InfoStore> {
 		        	is.setMail(mail.getFirstChild().getNodeValue());
 		        
 		        Log.i("CHERI", current.toString());
-		        	
-				
 			} else {
 				Log.i("CHERI", "Echec de l'appel du webservice");
 			}	

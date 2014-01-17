@@ -56,32 +56,6 @@ public class SettingsActivity extends Activity {
         btnCan.setOnClickListener(new BtnCancelSettingsListener(this));
         
         this.load();
-        
-        //verifie la presence du gps
-        PackageManager pm = getPackageManager();
-        _hasGps = pm.hasSystemFeature(PackageManager.FEATURE_LOCATION_GPS);
-        
-        if (_hasGps){
-        	_rbGps.setClickable(true);
-        	
-        	//si gps present, on verifie qu'il est actif
-            LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-            _gpsEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
-            
-            if (_gpsEnabled && (R.id.rbGPS == _prefGPS.getInt("gps",R.id.rbCity))){
-    			_group.check(R.id.rbGPS);
-    			Log.i("gps", "active");
-            }
-            //si gps actif, mais non demande
-            else{
-    			_group.check(R.id.rbCity);
-    			Log.i("gps", "unactive");
-            }
-        }
-        //si pas de gps
-        else{
-        	_rbGps.setClickable(false);
-        }
     }
 
     @Override
@@ -130,6 +104,32 @@ public class SettingsActivity extends Activity {
     	_etpCity.setText(s);
     	_etpCity.requestFocus();
     	_etpCity.setSelection(s.length());
+        
+        //verifie la presence du gps
+        PackageManager pm = getPackageManager();
+        _hasGps = pm.hasSystemFeature(PackageManager.FEATURE_LOCATION_GPS);
+        
+        if (_hasGps){
+        	_rbGps.setClickable(true);
+        	
+        	//si gps present, on verifie qu'il est actif
+            LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+            _gpsEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+            //si gps actif et demande
+            if (_gpsEnabled && (R.id.rbGPS == _prefGPS.getInt("gps",R.id.rbCity))){
+    			_group.check(R.id.rbGPS);
+    			Log.i("gps", "active");
+            }
+            //si gps actif, mais non demande
+            else{
+    			_group.check(R.id.rbCity);
+    			Log.i("gps", "unactive");
+            }
+        }
+        //si pas de gps
+        else{
+        	_rbGps.setClickable(false);
+        }
     }
 
 }

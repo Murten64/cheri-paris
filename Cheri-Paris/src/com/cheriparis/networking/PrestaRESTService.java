@@ -30,15 +30,10 @@ public class PrestaRESTService extends AsyncTask<String, Void, List<Store>> {
 
 	private final static String PRESTA_REST_KEY = "Z7MTLNZW96SEXB2LHVBQWKAM3UU41YIM";
 	private final static String PRESTA_REST_URL_STORES = "http://cheri-paris.com/v1/api/stores?display=[id,name,latitude,longitude]&filter[city]=";
-	//private final static String PRESTA_POSTALCODE_FIELD = "postcode";
 	
 	private MyListActivity _myView;
 	
-	private DefaultHttpClient client;
-	//http://cheri-paris.com/v1/api/stores?filter[postcode]=64000
-	//http://cheri-paris.com/v1/api/stores?display=full&filter[postcode]=64000
-	//http://cheri-paris.com/v1/api/stores?display=[id,name,address1]&filter[city]=Pau
-	
+	private DefaultHttpClient client;	
 	
 	public PrestaRESTService(MyListActivity view) {
 		super();
@@ -90,13 +85,10 @@ public class PrestaRESTService extends AsyncTask<String, Void, List<Store>> {
 		        						longitude.getFirstChild().getNodeValue());
 		        	stores.add(s);
 		        	Log.i("CHERI", current.toString());
-		        }
-		        	
-				
+		        }				
 			} else {
 				Log.i("CHERI", "Echec de l'appel du webservice");
-			}	
-			
+			}				
 		} catch (ClientProtocolException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -111,12 +103,9 @@ public class PrestaRESTService extends AsyncTask<String, Void, List<Store>> {
 		return stores;
 	}
 
-
 	@Override
 	protected void onPostExecute(List<Store> result) {
 		this._myView.setStores(result);
 	}
 
-	
-	
 }
