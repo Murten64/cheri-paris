@@ -37,7 +37,7 @@
             <TextView
                 android:id="@+id/labHoursStore"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="fill_parent"
                 android:layout_weight="1" />
 
         </TableRow>
@@ -58,7 +58,7 @@
             <TextView
                 android:id="@+id/labAddressStore"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="fill_parent"
                 android:layout_weight="1" />
 
         </TableRow>
@@ -79,7 +79,7 @@
             <TextView
                 android:id="@+id/labPostCodeStore"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="fill_parent"
                 android:layout_weight="1" />
 
         </TableRow>
@@ -100,7 +100,7 @@
             <TextView
                 android:id="@+id/labCityStore"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="fill_parent"
                 android:layout_weight="1" />
 
         </TableRow>
@@ -121,7 +121,7 @@
             <TextView
                 android:id="@+id/labPhoneStore"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="fill_parent"
                 android:layout_weight="1" />
 
         </TableRow>
@@ -142,7 +142,7 @@
             <TextView
                 android:id="@+id/labMailStore"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="fill_parent"
                 android:layout_weight="1" />
 
         </TableRow>
