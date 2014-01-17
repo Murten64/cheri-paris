@@ -150,8 +150,23 @@ public class MyListActivity extends Activity {
     }
 	
 	private double[] localiseMe(){
-		
-		return null;
+		double loc[] = new double[2];
+		if (_location != null){
+			loc[0] = _location.getLatitude();
+			loc[1] = _location.getLongitude();
+		}
+		else{
+			Geocoder gcd = new Geocoder(this);
+			Address addr = new Address(null);
+			try {
+				addr = gcd.getFromLocationName(_city, 1).get(0);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			loc[0] = addr.getLatitude();
+			loc[1] = addr.getLongitude();
+		}
+		return loc;
 	}
     
 	public void load(){

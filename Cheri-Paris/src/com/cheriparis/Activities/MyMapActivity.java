@@ -18,7 +18,7 @@ public class MyMapActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mymap_activity);
 
-        Intent intent = new Intent();
+        Intent intent = getIntent();
         _lat = intent.getDoubleArrayExtra("latitudes");
         _long = intent.getDoubleArrayExtra("longitudes");
         
@@ -26,7 +26,9 @@ public class MyMapActivity extends FragmentActivity {
         _map = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
         
         LatLng marker = new LatLng(_lat[0], _long[0]);
-        _map.moveCamera(CameraUpdateFactory.newLatLngZoom(marker, 12));
+    	_map.addMarker(new MarkerOptions()
+    		.position(marker));
+        _map.moveCamera(CameraUpdateFactory.newLatLngZoom(marker, 13));
         
         for (int i=1; i<_lat.length; i++){
         	marker = new LatLng(_lat[i],_long[i]);
