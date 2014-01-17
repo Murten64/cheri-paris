@@ -1,20 +1,12 @@
 package com.cheriparis.Activities;
 
-import java.io.IOException;
-import java.util.List;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageManager;
-import android.location.Address;
-import android.location.Criteria;
-import android.location.Geocoder;
-import android.location.Location;
 import android.location.LocationManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.util.Log;
@@ -122,7 +114,9 @@ public class SettingsActivity extends Activity {
     	}
     	
     	ed = _prefCity.edit();
-    	ed.putString("city", _etpCity.getText().toString());
+    	String city = _etpCity.getText().toString();
+    	city.replaceAll(" ", "");
+    	ed.putString("city", city);
     	ed.commit();
     }
     

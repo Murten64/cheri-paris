@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Cheri-Paris</string>
+    <string name="GPS">GPS</string>
+    <string name="menu_settings">Configuración</string>
+    <string name="title_activity_main">Cheri-Paris</string>
+    <string name="btnList">Lista de tiendas</string>
+    <string name="btnSettings">Configuración</string>
+    <string name="title_activity_settings">Configuración</string>
+    <string name="title_activity_list">Cheri-Paris Tiendas</string>
+    <string name="settings">Configuración</string>
+    <string name="hintCity">Ciudad</string>
+    <string name="lblGPS">Utilizar el GPS</string>
+    <string name="errorGPS">GPS Indisponible !</string>
+    <string name="lblCity">Entrar una ciudad</string>
+    <string name="btnValid">Validar</string>
+    <string name="btnCancel">Cancelar</string>
+    <string name="btnInfo">Noticias</string>
+    <string name="btnInfoGPS">Localizar</string>
+    <string name="gpsActive">GPS Activo!</string>
+    <string name="gpsUnactive">GPS Inactive!</string>
+    <string name="labReturn">Retorno</string>
+    <string name="action_settings">Configuración</string>
+    <string name="store">Tienda</string>
+    <string name="title_activity_shop_info">Tienda Informacións</string>
+    <string name="hoursStore">Horas:</string>
+    <string name="addressStore">Dirección:</string>
+    <string name="phoneStore">Telefono:</string>
+    <string name="mailStore">Email:</string>
+    <string name="postCodeStore">Código postal:</string>
+    <string name="cityStore">Ciudad:</string>
+    <string name="nbStores"> Tienda(s) localizadas!</string>
+
+</resources>

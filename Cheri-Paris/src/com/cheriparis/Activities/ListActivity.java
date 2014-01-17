@@ -107,7 +107,8 @@ public class ListActivity extends Activity {
     				if (addresses.size() > 0){
     					//et donc de la ville
     					Log.i("ville gps", addresses.get(0).getLocality());
-    					setCity(addresses.get(0).getLocality());
+    					String city = addresses.get(0).getLocality().replaceAll(" ", "");
+    					setCity(city);
     				}
     			} catch (IOException e) {
     				e.printStackTrace();
