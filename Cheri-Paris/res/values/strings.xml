@@ -16,7 +16,7 @@
     <string name="lblCity">Enter a city</string>
     <string name="btnValid">Validate</string>
     <string name="btnCancel">Cancel</string>
-    <string name="btnInfo">Infos</string>
+    <string name="btnInfo">Informations</string>
     <string name="btnInfoGPS">Locate</string>
     <string name="gpsActive">GPS Active!</string>
     <string name="gpsUnactive">GPS Unactive!</string>
