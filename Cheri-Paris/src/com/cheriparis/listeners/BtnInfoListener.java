@@ -1,6 +1,6 @@
 package com.cheriparis.listeners;
 
-import com.cheriparis.Activities.ListActivity;
+import com.cheriparis.Activities.MyListActivity;
 
 import android.content.Context;
 import android.text.NoCopySpan.Concrete;
@@ -8,10 +8,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 public class BtnInfoListener implements OnClickListener {
-	private ListActivity _myView;
+	private MyListActivity _myView;
 	private int _myId;
 	
-	public BtnInfoListener(ListActivity view, int id){
+	public BtnInfoListener(MyListActivity view, int id){
 		this._myView = view;
 		this._myId = id;
 	}

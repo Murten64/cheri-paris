@@ -30,7 +30,7 @@ import com.cheriparis.listeners.BtnReturnListener;
 import com.cheriparis.networking.PrestaRESTService;
 import com.cheriparis.pojos.Store;
 
-public class ListActivity extends Activity {
+public class MyListActivity extends Activity {
 	private List<Store> _stores;
 	private StoreAdapter _adapter;
 	private ListView _list;
@@ -96,7 +96,7 @@ public class ListActivity extends Activity {
 
     public void goToShopInfoActivity(int id){
     	Intent intent = new Intent();
-    	intent.setClass(ListActivity.this, ShopInfoActivity.class);
+    	intent.setClass(MyListActivity.this, ShopInfoActivity.class);
     	intent.putExtra("id", id);
     	this.startActivity(intent);
     }
@@ -106,10 +106,10 @@ public class ListActivity extends Activity {
 		Intent intent = new Intent();
     	if(id == 0){
     		// TODO Afficher une carte centrée sur le centre-ville ou l'emplacement du telephone
-    		//intent.setClass(ListActivity.this, classeCible.class);
+    		//intent.setClass(MyListActivity.this, classeCible.class);
     	}else {
     		// TODO Afficher une carte centrée sur le magasin sélectionné
-    		//intent.setClass(ListActivity.this, classeCible.class);
+    		//intent.setClass(MyListActivity.this, classeCible.class);
     		intent.putExtra("id", id);
     	}
     	/*PackageManager pm = getPackageManager();

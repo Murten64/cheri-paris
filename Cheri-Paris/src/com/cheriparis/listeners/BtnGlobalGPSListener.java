@@ -1,14 +1,14 @@
 package com.cheriparis.listeners;
 
-import com.cheriparis.Activities.ListActivity;
+import com.cheriparis.Activities.MyListActivity;
 
 import android.view.View;
 import android.view.View.OnClickListener;
 
 public class BtnGlobalGPSListener implements OnClickListener {
-	private ListActivity _myView;
+	private MyListActivity _myView;
 
-	public BtnGlobalGPSListener(ListActivity view) {
+	public BtnGlobalGPSListener(MyListActivity view) {
 		super();
 		this._myView = view;
 	}

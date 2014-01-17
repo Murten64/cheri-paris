@@ -40,7 +40,7 @@ public class MainActivity extends Activity {
     
     public void goToListView(){
     	Intent intent = new Intent();
-    	intent.setClass(MainActivity.this, ListActivity.class);
+    	intent.setClass(MainActivity.this, MyListActivity.class);
     	this.startActivity(intent);
     }
     

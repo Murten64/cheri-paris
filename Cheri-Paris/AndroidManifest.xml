@@ -55,7 +55,7 @@
                 android:value="android.preference.PreferenceActivity" />
         </activity>
         <activity
-            android:name="com.cheriparis.Activities.ListActivity"
+            android:name="com.cheriparis.Activities.MyListActivity"
             android:label="@string/title_activity_list" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -68,7 +68,7 @@
         <activity
             android:name="com.cheriparis.Activities.MyMapActivity"
             android:label="@string/title_activity_my_map"
-            android:parentActivityName="com.cheriparis.Activities.ListActivity" >
+            android:parentActivityName="com.cheriparis.Activities.MyListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.cheriparis.Activities.ListActivity" />

@@ -2,7 +2,7 @@ package com.cheriparis.adapters;
 
 import java.util.List;
 
-import com.cheriparis.Activities.ListActivity;
+import com.cheriparis.Activities.MyListActivity;
 import com.cheriparis.Activities.R;
 import com.cheriparis.listeners.BtnInfoGPSListener;
 import com.cheriparis.listeners.BtnInfoListener;
@@ -20,9 +20,9 @@ import android.widget.TextView;
 public class StoreAdapter extends ArrayAdapter<Store> {
 	private List<Store> _stores;
 	private Context _context;
-	private ListActivity _myActivity;
+	private MyListActivity _myActivity;
 	
-	public StoreAdapter(Context context, int textViewRessourceId, List<Store> objects, ListActivity activity){
+	public StoreAdapter(Context context, int textViewRessourceId, List<Store> objects, MyListActivity activity){
 		super(context, textViewRessourceId, objects);
 		
 		this._stores = objects;
