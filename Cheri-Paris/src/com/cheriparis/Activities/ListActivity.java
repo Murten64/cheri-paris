@@ -85,46 +85,46 @@ public class ListActivity extends Activity {
     	setCity(_prefCity.getString("city",""));
     	Log.i("city before gps", getCity());
 
-        PackageManager pm = getPackageManager();
-        if (pm.hasSystemFeature(PackageManager.FEATURE_LOCATION_GPS)){
-		//GPS
-		//critere de recherche, par default
-        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-    	if ((R.id.rbGPS == _prefGPS.getInt("gps",R.id.rbCity)) && 
-    			(locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER))){
-    	    Criteria criteria = new Criteria();
-    	    String provider = locationManager.getBestProvider(criteria, false);
-    	    //position
-    	    _location = locationManager.getLastKnownLocation(provider);
-    		Log.i("latitude", String.valueOf(_location.getLatitude()));
-    		Log.i("longitude", String.valueOf(_location.getLongitude()));
-    		//geocoder
-    		Geocoder gcd = new Geocoder(this);
-    		List<Address> addresses;
-    		try {
-    			//recup de l'adresse
-    			addresses = gcd.getFromLocation(_location.getLatitude(), _location.getLongitude(), 1);
-    			if (addresses.size() > 0){
-    				//et donc de la ville
-    				Log.i("ville gps", addresses.get(0).getLocality());
-    				setCity(addresses.get(0).getLocality());
+    	PackageManager pm = getPackageManager();
+    	if (pm.hasSystemFeature(PackageManager.FEATURE_LOCATION_GPS)){
+    		//GPS
+    		//critere de recherche, par default
+    		LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+    		if ((R.id.rbGPS == _prefGPS.getInt("gps",R.id.rbCity)) && 
+    				(locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER))){
+    			Criteria criteria = new Criteria();
+    			String provider = locationManager.getBestProvider(criteria, false);
+    			//position
+    			_location = locationManager.getLastKnownLocation(provider);
+    			Log.i("latitude", String.valueOf(_location.getLatitude()));
+    			Log.i("longitude", String.valueOf(_location.getLongitude()));
+    			//geocoder
+    			Geocoder gcd = new Geocoder(this);
+    			List<Address> addresses;
+    			try {
+    				//recup de l'adresse
+    				addresses = gcd.getFromLocation(_location.getLatitude(), _location.getLongitude(), 1);
+    				if (addresses.size() > 0){
+    					//et donc de la ville
+    					Log.i("ville gps", addresses.get(0).getLocality());
+    					setCity(addresses.get(0).getLocality());
+    				}
+    			} catch (IOException e) {
+    				e.printStackTrace();
     			}
-    		} catch (IOException e) {
-    			e.printStackTrace();
+
+    			// TODO deplacer googlemap
+    			//googlemaps				
+    			String url = "http://maps.google.com/?ll=";
+    			url += String.valueOf(_location.getLatitude());
+    			url += ",";
+    			url += String.valueOf(_location.getLongitude());
+    			Intent intent = new Intent( Intent.ACTION_VIEW, Uri.parse( url ) );
+    			startActivity(intent);
     		}
-    		
-    		// TODO deplacer googlemap
-    		//googlemaps				
-    		String url = "http://maps.google.com/?ll=";
-    		url += String.valueOf(_location.getLatitude());
-    		url += ",";
-    		url += String.valueOf(_location.getLongitude());
-    		Intent intent = new Intent( Intent.ACTION_VIEW, Uri.parse( url ) );
-    		startActivity(intent);
     	}
-        }
     	Log.i("city after gps", getCity());
-    }
+	}
 
 	public String getCity() {
 		return _city;
