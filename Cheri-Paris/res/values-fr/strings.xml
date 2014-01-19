@@ -33,5 +33,6 @@
     <string name="nbStores"> Magasin(s) localisé(s)!</string>
     <string name="notFound"> Informations non trouvés!</string>
     <string name="title_activity_my_map">Carte</string>
+    <string name="satellite">Satellite indisponible</string>
 
 </resources>

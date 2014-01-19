@@ -21,6 +21,7 @@ import android.view.MenuItem;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cheriparis.adapters.StoreAdapter;
 import com.cheriparis.listeners.BtnGlobalGPSListener;
@@ -73,7 +74,6 @@ public class MyListActivity extends Activity {
 		if(item.getItemId() == R.id.menu_settings) {
 			startActivity(new Intent(this, SettingsActivity.class));
 		}
-
 		return super.onOptionsItemSelected(item);
 	}
 
@@ -187,6 +187,8 @@ public class MyListActivity extends Activity {
 					}
 				}else {
 					Log.i("gps", "pb gps");
+					Toast toast = Toast.makeText(this, R.string.satellite, Toast.LENGTH_LONG);
+					toast.show();
 				}
 			}
 		}

@@ -33,5 +33,6 @@
     <string name="nbStores"> Store(s) located!</string>
     <string name="notFound"> Informations not found!</string>
     <string name="title_activity_my_map">Map</string>
+    <string name="satellite">Satellite unavailable</string>
 
 </resources>
