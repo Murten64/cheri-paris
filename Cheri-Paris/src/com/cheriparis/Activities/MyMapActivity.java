@@ -12,6 +12,7 @@ public class MyMapActivity extends FragmentActivity {
 	private GoogleMap _map;
 	private double _lat[];
 	private double _long[];
+	private String _title[];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +22,8 @@ public class MyMapActivity extends FragmentActivity {
         Intent intent = getIntent();
         _lat = intent.getDoubleArrayExtra("latitudes");
         _long = intent.getDoubleArrayExtra("longitudes");
+        _title = intent.getStringArrayExtra("names");
+        
         
         // Get a handle to the Map Fragment
         _map = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
@@ -29,7 +32,8 @@ public class MyMapActivity extends FragmentActivity {
         LatLng marker = new LatLng(_lat[0], _long[0]);
         //le positionne au bon endroit
     	_map.addMarker(new MarkerOptions()
-    		.position(marker));
+    		.position(marker)
+    		.title(_title[0]));
     	//centre la camera dessus
         _map.moveCamera(CameraUpdateFactory.newLatLngZoom(marker, 13));
         
@@ -38,7 +42,8 @@ public class MyMapActivity extends FragmentActivity {
         	marker = new LatLng(_lat[i],_long[i]);
         	_map.addMarker(new MarkerOptions()
         	.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_launcher))
-        	.position(marker));
+        	.position(marker)
+        	.title(_title[i]));
         }
     }
 }

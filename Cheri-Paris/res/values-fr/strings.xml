@@ -34,5 +34,6 @@
     <string name="notFound"> Informations non trouvés!</string>
     <string name="title_activity_my_map">Carte</string>
     <string name="satellite">Satellite indisponible</string>
+    <string name="me">Moi</string>
 
 </resources>

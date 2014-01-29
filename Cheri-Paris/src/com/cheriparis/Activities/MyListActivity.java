@@ -104,32 +104,40 @@ public class MyListActivity extends Activity {
 		Intent intent = new Intent();
 		double[] lats;
 		double[] longs;
+		String[] names;
 		if(id == 0){
 			lats = new double[this._stores.size()+1];
 			longs = new double[this._stores.size()+1];
+			names = new String[this._stores.size()+1];
 			lats[0] = this.localiseMe()[0];
 			longs[0] = this.localiseMe()[1];
+			names[0] = getString(R.string.me);
 			for(int i = 0; i < this._stores.size(); i++){
 				lats[i+1] = this._stores.get(i).getLatitude();
 				longs[i+1] = this._stores.get(i).getLongitude();
+				names[i+1] = this._stores.get(i).getName();
 			}
 			intent.setClass(MyListActivity.this, MyMapActivity.class);
 		}else {
 			lats = new double[2];
 			longs = new double[2];
+			names = new String[2];
 			lats[0] = this.localiseMe()[0];
 			longs[0] = this.localiseMe()[1];
+			names[0] = getString(R.string.me);
 			int i = 0;
 			while(this._stores.get(i).getId() != id){
 				i++;
 			}
 			lats[1] = this._stores.get(i).getLatitude();
 			longs[1] = this._stores.get(i).getLongitude();
+			names[1] = this._stores.get(i).getName();
 			intent.setClass(MyListActivity.this, MyMapActivity.class);
 			intent.putExtra("id", id);
 		}
 		intent.putExtra("latitudes", lats);
 		intent.putExtra("longitudes", longs);
+		intent.putExtra("names", names);
 		startActivity(intent);
 	}
 
