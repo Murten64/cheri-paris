@@ -29,7 +29,7 @@ import com.cheriparis.networking.PrestaRESTService;
 import com.cheriparis.pojos.Store;
 
 public class MyListActivity extends Activity {
-	public static final int CHANGE_LIST_PREFS = 1;
+	private static final int CHANGE_LIST_PREFS = 1;
 	
 	private List<Store> _stores;
 	private StoreAdapter _adapter;
@@ -71,14 +71,14 @@ public class MyListActivity extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		if(item.getItemId() == R.id.menu_settings) {
 			Intent intent = new Intent(this, SettingsActivity.class);
-			startActivityForResult(intent, this.CHANGE_LIST_PREFS);
+			startActivityForResult(intent, MyListActivity.getChangeListPrefs());
 		}
 		return super.onOptionsItemSelected(item);
 	}
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if(requestCode == CHANGE_LIST_PREFS){
+		if(requestCode == getChangeListPrefs()){
 			if(resultCode == RESULT_OK){
 				this.loadView();
 			}
@@ -223,5 +223,9 @@ public class MyListActivity extends Activity {
 
 	public void setCity(String city) {
 		this._city = city;
+	}
+
+	public static int getChangeListPrefs() {
+		return CHANGE_LIST_PREFS;
 	}
 }
