@@ -132,4 +132,13 @@ public class SettingsActivity extends Activity {
         }
     }
 
+    public void validate(){
+    	setResult(RESULT_OK);
+    	finish();
+    }
+    
+    public void cancel(){
+    	setResult(RESULT_CANCELED);
+    	finish();
+    }
 }

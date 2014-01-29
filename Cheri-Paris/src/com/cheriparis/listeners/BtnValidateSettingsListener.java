@@ -15,7 +15,7 @@ public class BtnValidateSettingsListener implements OnClickListener {
 
 	public void onClick(View v) {
 		_settings.savePref();
-		this._settings.finish();
+		this._settings.validate();
 	}
 
 }

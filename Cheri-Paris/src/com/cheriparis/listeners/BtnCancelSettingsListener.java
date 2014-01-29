@@ -18,7 +18,7 @@ public class BtnCancelSettingsListener implements OnClickListener {
 
 
 	public void onClick(View v) {
-		this._myView.finish();
+			this._myView.cancel();
 
 	}
 

@@ -29,6 +29,8 @@ import com.cheriparis.networking.PrestaRESTService;
 import com.cheriparis.pojos.Store;
 
 public class MyListActivity extends Activity {
+	public static final int CHANGE_LIST_PREFS = 1;
+	
 	private List<Store> _stores;
 	private StoreAdapter _adapter;
 	private ListView _list;
@@ -47,10 +49,6 @@ public class MyListActivity extends Activity {
 		_prefCity = getSharedPreferences("city",Activity.MODE_PRIVATE);
 
 		this._stores = new ArrayList<Store>();
-		
-		load();
-		
-		PrestaRESTService cityStores = new PrestaRESTService(this);
 
 		this._nbStore = (TextView)findViewById(R.id.labNbStore);
 		this._list = (ListView)findViewById(R.id.lvStoreList);
@@ -60,7 +58,7 @@ public class MyListActivity extends Activity {
 		this._adapter = new StoreAdapter(this, R.layout.itemlist, this._stores, this);
 		this._list.setAdapter(this._adapter);
 
-		cityStores.execute(this._city);
+		loadView();
 	}
 
 	@Override
@@ -72,10 +70,19 @@ public class MyListActivity extends Activity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		if(item.getItemId() == R.id.menu_settings) {
-			// TODO a modifier
-			startActivity(new Intent(this, SettingsActivity.class));
+			Intent intent = new Intent(this, SettingsActivity.class);
+			startActivityForResult(intent, this.CHANGE_LIST_PREFS);
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if(requestCode == CHANGE_LIST_PREFS){
+			if(resultCode == RESULT_OK){
+				this.loadView();
+			}
+		}
 	}
 
 	public void setStores(List<Store> stores) {
@@ -89,7 +96,7 @@ public class MyListActivity extends Activity {
 
 	private void setNbStores(int nb){
 		String number = new String(String.valueOf(nb));
-		number += this._nbStore.getText().toString();
+		number += " " + getString(R.string.nbStores);
 		this._nbStore.setText(number);
 	}
 
@@ -202,6 +209,12 @@ public class MyListActivity extends Activity {
 			}
 		}
 		Log.i("city after gps", getCity());
+	}
+	
+	public void loadView(){
+		load();	
+		PrestaRESTService cityStores = new PrestaRESTService(this);
+		cityStores.execute(this._city);
 	}
 
 	public String getCity() {

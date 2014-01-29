@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 
 public class MainActivity extends Activity {
+	static final int CHANGE_MAIN_PREF = 2;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,14 +34,17 @@ public class MainActivity extends Activity {
     public boolean onOptionsItemSelected (MenuItem item){
     	if(item.getItemId() == R.id.menu_settings) {
     		Intent intent = new Intent(this, SettingsActivity.class);
-    		intent.putExtra("view", "main");
-    		startActivity(intent);
+    		startActivityForResult(intent,CHANGE_MAIN_PREF);
     	}
 
     	return super.onOptionsItemSelected(item);
     }
     
-    public void goToListView(){
+    @Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+	}
+
+	public void goToListView(){
     	Intent intent = new Intent();
     	intent.setClass(MainActivity.this, MyListActivity.class);
     	this.startActivity(intent);
