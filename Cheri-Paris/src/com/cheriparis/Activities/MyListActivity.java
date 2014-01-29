@@ -72,6 +72,7 @@ public class MyListActivity extends Activity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		if(item.getItemId() == R.id.menu_settings) {
+			// TODO a modifier
 			startActivity(new Intent(this, SettingsActivity.class));
 		}
 		return super.onOptionsItemSelected(item);
@@ -153,7 +154,7 @@ public class MyListActivity extends Activity {
 	}
 
 	public void load(){
-		setCity(_prefCity.getString("city","Santiano"));
+		setCity(_prefCity.getString("city","Santiago"));
 		Log.i("city before gps", getCity());
 
 		PackageManager pm = getPackageManager();
