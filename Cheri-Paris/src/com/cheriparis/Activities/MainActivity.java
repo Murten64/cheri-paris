@@ -32,8 +32,9 @@ public class MainActivity extends Activity {
     
     public boolean onOptionsItemSelected (MenuItem item){
     	if(item.getItemId() == R.id.menu_settings) {
-    		// TODO a modifier
-    		startActivity(new Intent(this, SettingsActivity.class));
+    		Intent intent = new Intent(this, SettingsActivity.class);
+    		intent.putExtra("view", "main");
+    		startActivity(intent);
     	}
 
     	return super.onOptionsItemSelected(item);
