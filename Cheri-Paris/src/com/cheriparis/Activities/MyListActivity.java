@@ -228,4 +228,8 @@ public class MyListActivity extends Activity {
 	public static int getChangeListPrefs() {
 		return CHANGE_LIST_PREFS;
 	}
+	
+	public void requestShop(){
+		// TODO lancer la requete
+	}
 }

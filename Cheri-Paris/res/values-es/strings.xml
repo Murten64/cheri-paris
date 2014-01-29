@@ -35,5 +35,6 @@
     <string name="title_activity_my_map">Mapa</string>
     <string name="satellite">Satélite indisponible</string>
     <string name="me">Mi</string>
+    <string name="request">Solicitar una tienda aquí</string>
 
 </resources>

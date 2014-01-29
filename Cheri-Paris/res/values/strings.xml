@@ -35,5 +35,6 @@
     <string name="title_activity_my_map">Map</string>
     <string name="satellite">Satellite unavailable</string>
     <string name="me">Me</string>
+    <string name="request">Request a store here</string>
 
 </resources>
