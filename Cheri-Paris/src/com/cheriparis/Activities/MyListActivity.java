@@ -18,6 +18,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -25,6 +26,7 @@ import android.widget.Toast;
 
 import com.cheriparis.adapters.StoreAdapter;
 import com.cheriparis.listeners.BtnGlobalGPSListener;
+import com.cheriparis.listeners.BtnRequestListener;
 import com.cheriparis.networking.PrestaRESTService;
 import com.cheriparis.pojos.Store;
 
@@ -54,6 +56,12 @@ public class MyListActivity extends Activity {
 		this._list = (ListView)findViewById(R.id.lvStoreList);
 		ImageButton btnGPS = (ImageButton)findViewById(R.id.btnGlobalGPS);
 		btnGPS.setOnClickListener(new BtnGlobalGPSListener(this));
+		Button btnRequest = (Button)findViewById(R.id.btnRequest);
+		btnRequest.setOnClickListener(new BtnRequestListener(this));
+		PackageManager pm = getPackageManager();
+		if (!pm.hasSystemFeature(PackageManager.FEATURE_LOCATION_GPS)){
+			btnRequest.setEnabled(false);
+		}
 
 		this._adapter = new StoreAdapter(this, R.layout.itemlist, this._stores, this);
 		this._list.setAdapter(this._adapter);
