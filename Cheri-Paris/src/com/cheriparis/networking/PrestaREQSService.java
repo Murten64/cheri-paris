@@ -43,9 +43,12 @@ public class PrestaREQSService extends AsyncTask<Location, Void, Integer> {
 		_url += ",";
 		_url += String.valueOf(location[0].getLongitude()); //"6.1529374";
 		_url += "&LOCALE=";
-		_url += _myActivity.getResources().getConfiguration().locale.getDisplayName();
+		_url += _myActivity.getResources().getConfiguration().locale.getLanguage();
+		_url += "_";
+		_url += _myActivity.getResources().getConfiguration().locale.getCountry();//getDisplayName();
 		_url += "&DEVICE_ID=";
 		_url += tm.getDeviceId();
+		_url = _url.replaceAll(" ", "");
 		Log.i("url",_url);
 		HttpGet cible = new HttpGet(_url);
 
