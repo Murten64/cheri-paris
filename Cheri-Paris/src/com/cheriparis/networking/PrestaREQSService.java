@@ -64,4 +64,14 @@ public class PrestaREQSService extends AsyncTask<Location, Void, Integer> {
 		
 		return valid;
 	}
+
+	@Override
+	protected void onPostExecute(Integer result) {
+		if(result.equals(200)){
+			this._myActivity.requestOk();
+		}
+		else {
+			this._myActivity.requestAborted();
+		}
+	}
 }
