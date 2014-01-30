@@ -36,5 +36,7 @@
     <string name="satellite">Satellite indisponible</string>
     <string name="me">Moi</string>
     <string name="request">Demander un magasin ici</string>
+    <string name="resquestStoreOk">Requête effectuée!</string>
+    <string name="requestStoreAborted">Requête échouée!</string>
 
 </resources>

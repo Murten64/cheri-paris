@@ -36,5 +36,7 @@
     <string name="satellite">Satélite indisponible</string>
     <string name="me">Mi</string>
     <string name="request">Solicitar una tienda aquí</string>
+    <string name="resquestStoreOk">Solicitud hecha!</string>
+    <string name="requestStoreAborted">Solicitud fracasada!</string>
 
 </resources>
