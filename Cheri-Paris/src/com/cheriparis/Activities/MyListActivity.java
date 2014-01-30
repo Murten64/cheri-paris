@@ -242,4 +242,14 @@ public class MyListActivity extends Activity {
 		PrestaREQSService requestService = new PrestaREQSService(this);
 		requestService.execute(this._location);
 	}
+	
+	public void requestOk(){
+		Toast toast = Toast.makeText(this, getString(R.string.resquestStoreOk), Toast.LENGTH_SHORT);
+		toast.show();
+	}
+	
+	public void requestAborted(){
+		Toast toast = Toast.makeText(this, getString(R.string.requestStoreAborted), Toast.LENGTH_SHORT);
+		toast.show();
+	}
 }
