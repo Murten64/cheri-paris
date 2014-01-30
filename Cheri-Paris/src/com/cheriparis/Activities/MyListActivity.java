@@ -240,6 +240,7 @@ public class MyListActivity extends Activity {
 	
 	public void requestShop(){
 		PrestaREQSService requestService = new PrestaREQSService(this);
+		Log.i("loc", _location.toString());
 		requestService.execute(this._location);
 	}
 	

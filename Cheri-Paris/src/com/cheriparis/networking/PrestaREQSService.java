@@ -15,6 +15,7 @@ import android.content.Context;
 import android.location.Location;
 import android.os.AsyncTask;
 import android.telephony.TelephonyManager;
+import android.util.Log;
 
 public class PrestaREQSService extends AsyncTask<Location, Void, Integer> {
 	private final static String PRESTA_INFO_KEY = "Z7MTLNZW96SEXB2LHVBQWKAM3UU41YIM";
@@ -38,14 +39,14 @@ public class PrestaREQSService extends AsyncTask<Location, Void, Integer> {
 		int valid = 0;
 		TelephonyManager tm = (TelephonyManager) _myActivity.getSystemService(Context.TELEPHONY_SERVICE);
 		_url = "http://mobile.cheri-paris.com/requestStore.php?GPS_LOCATION=";
-		_url += location[0].getLatitude();  //"47.6193757";
+		_url += String.valueOf(location[0].getLatitude());  //"47.6193757";
 		_url += ",";
-		_url += location[0].getLongitude(); //"6.1529374";
+		_url += String.valueOf(location[0].getLongitude()); //"6.1529374";
 		_url += "&LOCALE=";
 		_url += _myActivity.getResources().getConfiguration().locale.getDisplayName();
 		_url += "&DEVICE_ID=";
 		_url += tm.getDeviceId();
-		
+		Log.i("url",_url);
 		HttpGet cible = new HttpGet(_url);
 
 		try{
