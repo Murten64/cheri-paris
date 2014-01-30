@@ -27,6 +27,7 @@ import android.widget.Toast;
 import com.cheriparis.adapters.StoreAdapter;
 import com.cheriparis.listeners.BtnGlobalGPSListener;
 import com.cheriparis.listeners.BtnRequestListener;
+import com.cheriparis.networking.PrestaREQSService;
 import com.cheriparis.networking.PrestaRESTService;
 import com.cheriparis.pojos.Store;
 
@@ -238,6 +239,7 @@ public class MyListActivity extends Activity {
 	}
 	
 	public void requestShop(){
-		// TODO lancer la requete
+		PrestaREQSService requestService = new PrestaREQSService(this);
+		requestService.execute(this._location);
 	}
 }
